@@ -20,11 +20,11 @@ jobs:
           version: '>=363.0.0'
       #- name: 'Use gcloud CLI'
         # run: 'gcloud info'
-      - name: 'Install gcloud beta'
-        run: 'gcloud components install beta'
+      #- name: 'Install gcloud beta'
+        # run: 'gcloud components install beta'
       - name: 'Deploy cloud function'
         run: |
-          gcloud beta functions deploy python_http_function \
+          gcloud functions deploy python_http_function \
           --gen2 \
           --region=europe-north1 \
           --runtime=python310 \
