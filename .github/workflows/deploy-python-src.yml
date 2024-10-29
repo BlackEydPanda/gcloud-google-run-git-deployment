@@ -23,7 +23,7 @@ jobs:
         run: 'gcloud info'
       - name: 'Deploy cloud function'
         run: |
-          gcloud functions deploy python-http-function \
+          gcloud beta functions deploy python-http-function \
           --gen2 \
           --region=eu-north1 \
           --runtime=python310 \
