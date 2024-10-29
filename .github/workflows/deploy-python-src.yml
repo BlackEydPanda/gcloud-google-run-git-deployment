@@ -29,4 +29,5 @@ jobs:
           --region=europe-north1 \
           --runtime=python310 \
           --source=. \
-          --trigger-http
+          --trigger-http \
+          --allow-unauthenticated
