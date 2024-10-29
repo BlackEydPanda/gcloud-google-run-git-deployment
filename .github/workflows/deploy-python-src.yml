@@ -19,14 +19,14 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>=363.0.0'
-      - name: 'Use gcloud CLI'
-        run: 'gcloud info'
+      #- name: 'Use gcloud CLI'
+        # run: 'gcloud info'
       - name: 'Install gcloud beta'
         run: 'gcloud components install beta'
       - name: 'Deploy cloud function'
         run: |
           gcloud beta functions deploy python-http-function \
           --gen2 \
-          --region=eu-north1 \
+          --region=europe-north1 \
           --runtime=python310 \
           --source=.
