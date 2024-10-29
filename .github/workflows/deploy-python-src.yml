@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ls
       - id: 'auth'
         name: 'Authenticate to GCP'
         uses: 'google-github-actions/auth@v2'
@@ -29,4 +28,5 @@ jobs:
           --gen2 \
           --region=europe-north1 \
           --runtime=python310 \
-          --source=.
+          --source=. \
+          --trigger-http
