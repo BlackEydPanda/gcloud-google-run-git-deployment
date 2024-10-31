@@ -28,6 +28,6 @@ jobs:
           --gen2 \
           --region=europe-north1 \
           --runtime=python310 \
-          --source=. \
+          --source=./src/http-python/ \
           --trigger-http \
           --allow-unauthenticated
