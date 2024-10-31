@@ -18,8 +18,8 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>=363.0.0'
-      - name: 'Use gcloud CLI'
-        run: 'gcloud info'
+      #- name: 'Use gcloud CLI'
+        # run: 'gcloud info'
       #- name: 'Install gcloud beta'
         # run: 'gcloud components install beta'
       - name: 'Deploy cloud function'
@@ -29,5 +29,15 @@ jobs:
           --region=europe-north1 \
           --runtime=python310 \
           --source=./src/http-python/ \
+          --trigger-http \
+          --allow-unauthenticated
+      - name: 'Attempt double deployment if already manually created'
+        run: |
+          gcloud functions deploy double-deployment-test \
+          --gen2 \
+          --region=europe-north1 \
+          --runtime=python310 \
+          --source=./src/http-python \
+          --entry-point=python_http_function\
           --trigger-http \
           --allow-unauthenticated
