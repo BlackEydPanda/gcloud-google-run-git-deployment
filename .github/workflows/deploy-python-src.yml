@@ -38,6 +38,6 @@ jobs:
           --region=europe-north1 \
           --runtime=python310 \
           --source=./src/http-python \
-          --entry-point=python_http_function\
+          --entry-point python_http_function \
           --trigger-http \
           --allow-unauthenticated
