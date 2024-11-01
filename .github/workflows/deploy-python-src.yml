@@ -5,7 +5,23 @@ on:
     branches:
       - main
 jobs:
+  changes: 
+    runs-on: ubuntu-latest
+    outputs:
+      http-python: ${{ steps.filter.outputs.http-python }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for changes1
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            http-python:
+            - 'http-python/**'
+      
   deploy:
+    needs: changes
+    if: ${{ needs.changes.outputs.http-python == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
