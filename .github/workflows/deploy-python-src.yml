@@ -31,7 +31,7 @@ jobs:
           --source=./src/http-python/ \
           --trigger-http \
           --allow-unauthenticated
-      - name: 'Attempt double deployment if already manually created'
+      - name: 'Attempt double deployment if function already manually created'
         run: |
           gcloud functions deploy double-deployment-test \
           --gen2 \
